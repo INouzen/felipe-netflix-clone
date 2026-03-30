@@ -1,0 +1,40 @@
+.loading {
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.loading__logo {
+    width: 300px;
+    object-fit: contain;
+    animation: netflixInitialLoad 3.5s forwards cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.loading__fadeOut .loading__logo {
+    animation: netflixExit 1s forwards cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+@keyframes netflixInitialLoad {
+    0% { transform: scale(0.8); opacity: 0; }
+    15% { transform: scale(1); opacity: 1; }
+    85% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(15); opacity: 0; }
+}
+
+@keyframes netflixExit {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(15); opacity: 0; }
+}
+
+.loading__fadeOut {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}

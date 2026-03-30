@@ -1,0 +1,56 @@
+.trending {
+  padding: 20px 4%;
+  background-color: #000;
+}
+
+.trending__title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.trending__container {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.trending__container::-webkit-scrollbar {
+  display: none;
+}
+
+.trending__item {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-width: 180px;
+  transition: transform 300ms;
+}
+
+.trending__item:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.trending__rank {
+  font-size: 12rem;
+  font-weight: 900;
+  line-height: 0.8;
+  color: #000;
+  -webkit-text-stroke: 2px #555; /* Creates the outlined number look */
+  position: absolute;
+  left: -20px;
+  bottom: -10px;
+  z-index: 1;
+}
+
+.trending__poster {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  margin-left: 40px; /* Offset to make room for the rank number */
+}

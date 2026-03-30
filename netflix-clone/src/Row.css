@@ -1,17 +1,19 @@
 .row {
-  margin-left: 20px;
   color: white;
+  margin-left: 20px;
 }
 
 .row__posters {
   display: flex;
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 20px;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 .row__posters::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar for a clean Netflix look */
+  display: none;
 }
 
 .row__poster {
@@ -20,11 +22,11 @@
   max-height: 100px;
   margin-right: 10px;
   transition: transform 450ms;
+  cursor: pointer;
 }
 
 .row__poster:hover {
   transform: scale(1.08);
-  cursor: pointer;
 }
 
 .row__posterLarge {

@@ -1,0 +1,80 @@
+.signUp {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("./netflix-landing-page.jpg") center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.signUp__header {
+  padding: 25px 50px;
+}
+
+.signUp__logo {
+  width: 165px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.signUp__body {
+  margin: auto;
+  z-index: 2;
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 60px 68px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.signUp__body > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signUp__body > form > h1 {
+  font-size: 32px;
+  margin-bottom: 28px;
+}
+
+.signUp__body > form > input {
+  height: 50px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  padding: 0 20px;
+  background: #333;
+  color: white;
+}
+
+.signUp__body > form > button {
+  padding: 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #e50914;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.signUp__gray {
+  color: #737373;
+}
+
+.signUp__link {
+  color: white;
+  cursor: pointer;
+}
+
+.signUp__link:hover {
+  text-decoration: underline;
+}
+
+.signUp__footer {
+  margin-top: 40px;
+}

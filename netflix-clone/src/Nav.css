@@ -2,29 +2,93 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px;
-  height: 30px;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
+  height: 64px;
+  z-index: 100;
+  transition: background-color 0.5s ease-in;
 }
 
 .nav__black {
   background-color: #111;
 }
 
+.nav__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  height: 100%;
+}
+
 .nav__logo {
-  position: fixed;
-  left: 20px;
-  width: 80px;
+  width: 90px;
   object-fit: contain;
+  cursor: pointer;
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+}
+
+.nav__searchContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+  padding: 5px;
+  transition: all 0.4s ease;
+  margin-right: 20px;
+}
+
+.nav__searchActive {
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav__searchIcon {
+  width: 20px;
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.nav__searchInput {
+  width: 0;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  transition: width 0.4s ease;
+  font-size: 14px;
+}
+
+.nav__searchActive .nav__searchInput {
+  width: 200px;
+  margin-left: 10px;
 }
 
 .nav__avatar {
-  position: fixed;
-  right: 20px;
-  width: 30px;
-  object-fit: contain;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav__avatarContainer {
+  position: relative;
+}
+
+.nav__menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #111;
+  border: 1px solid #333;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav__menuItem {
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
 }
