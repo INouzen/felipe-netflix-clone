@@ -69,6 +69,7 @@ function Row({ title, fetchUrl, isLargeRow, searchTerm = "" }) {
 
     const onWheel = (e) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        if (!e.cancelable) return;
         e.preventDefault();
         velocity.current += e.deltaY * 0.15;
         cancelAnimationFrame(animationFrame.current);
@@ -272,7 +273,7 @@ function Row({ title, fetchUrl, isLargeRow, searchTerm = "" }) {
         <div
           className="row__posters"
           ref={rowRef}
-          style={{ scrollSnapType: "none", scrollBehavior: "auto", overflowX: "hidden" }}
+          style={{ scrollSnapType: "none", scrollBehavior: "auto" }}
         >
           {finalMovies.map((movie, index) => {
             const imgKey = `${movie.id}-${index}`;

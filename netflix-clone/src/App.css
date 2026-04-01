@@ -1,7 +1,7 @@
 .app {
   background-color: #000;
   min-height: 100vh;
-  overflow-y: initial !important; 
+  overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -37,7 +37,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  touch-action: pan-y; 
+  touch-action: pan-y;
 }
 
 .search__results h2 {
