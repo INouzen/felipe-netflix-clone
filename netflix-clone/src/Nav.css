@@ -2,8 +2,9 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
+  height: 60px;
   z-index: 100;
+  -webkit-transition: background-color 0.5s ease-in;
   transition: background-color 0.5s ease-in;
 }
 
@@ -12,26 +13,36 @@
 }
 
 .nav__contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  padding: 0 4%;
+  padding: 0 3%;
   height: 100%;
 }
 
 .nav__logo {
-  width: 92px;
+  width: 70px;
   object-fit: contain;
   cursor: pointer;
 }
 
 .nav__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  gap: 8px;
 }
 
 .nav__languageContainer {
-  margin-right: 25px;
   position: relative;
 }
 
@@ -39,32 +50,39 @@
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 5px 25px 5px 10px;
+  padding: 4px 22px 4px 8px;
   border-radius: 2px;
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
 .nav__languageContainer::after {
   content: '▼';
-  font-size: 8px;
+  font-size: 7px;
   color: white;
   position: absolute;
-  right: 8px;
+  right: 7px;
   top: 50%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   pointer-events: none;
 }
 
 .nav__searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   border: 1px solid transparent;
-  padding: 5px;
+  padding: 4px;
+  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  margin-right: 20px;
 }
 
 .nav__searchActive {
@@ -73,7 +91,8 @@
 }
 
 .nav__searchIcon {
-  width: 20px;
+  width: 18px;
+  -webkit-filter: invert(1);
   filter: invert(1);
   cursor: pointer;
 }
@@ -85,14 +104,15 @@
   background: transparent;
   color: white;
   outline: none;
+  -webkit-transition: width 0.4s ease, opacity 0.4s ease;
   transition: width 0.4s ease, opacity 0.4s ease;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .nav__searchActive .nav__searchInput {
-  width: 200px;
+  width: 130px;
   opacity: 1;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .nav__profileContainer {
@@ -100,54 +120,66 @@
 }
 
 .nav__avatarWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
 }
 
 .nav__avatar {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 4px;
 }
 
 .nav__caret {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid white;
-  margin-left: 10px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid white;
+  margin-left: 6px;
+  -webkit-transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
 }
 
 .nav__caretRotated {
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
 .nav__dropdown {
   position: absolute;
-  top: 45px;
+  top: 40px;
   right: 0;
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  width: 180px;
-  padding: 10px 0;
+  width: 160px;
+  padding: 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  -webkit-animation: navPopUp 0.15s ease-out forwards;
   animation: navPopUp 0.15s ease-out forwards;
 }
 
+@-webkit-keyframes navPopUp {
+  from { opacity: 0; -webkit-transform: translateY(-5px) scale(0.98); transform: translateY(-5px) scale(0.98); }
+  to { opacity: 1; -webkit-transform: translateY(0) scale(1); transform: translateY(0) scale(1); }
+}
+
 @keyframes navPopUp {
-  from {
-    opacity: 0;
-    transform: translateY(-5px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(-5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .nav__dropdownTriangle {
@@ -162,7 +194,11 @@
 }
 
 .nav__dropdownItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 8px 15px;
   color: white;
@@ -193,7 +229,7 @@
   margin: 10px 0;
 }
 
-.nav__dropdownLinks p, 
+.nav__dropdownLinks p,
 .nav__dropdownLink {
   padding: 8px 15px;
   color: white;
@@ -213,18 +249,83 @@
   background-color: #e50914;
   color: white;
   border: none;
-  padding: 5px 15px;
-  font-size: 14px;
+  padding: 5px 12px;
+  font-size: 13px;
   font-weight: 500;
   border-radius: 3px;
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .nav__contents {
-    padding: 0 20px;
+@media (min-width: 480px) {
+  .nav {
+    height: 65px;
   }
+
   .nav__logo {
     width: 80px;
+  }
+
+  .nav__searchActive .nav__searchInput {
+    width: 160px;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    height: 70px;
+  }
+
+  .nav__contents {
+    padding: 0 4%;
+  }
+
+  .nav__logo {
+    width: 92px;
+  }
+
+  .nav__right {
+    gap: 12px;
+  }
+
+  .nav__languageContainer {
+    margin-right: 0;
+  }
+
+  .nav__languageSelect {
+    font-size: 14px;
+    padding: 5px 25px 5px 10px;
+  }
+
+  .nav__searchIcon {
+    width: 20px;
+  }
+
+  .nav__searchInput {
+    font-size: 14px;
+  }
+
+  .nav__searchActive .nav__searchInput {
+    width: 200px;
+    margin-left: 10px;
+  }
+
+  .nav__avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav__searchContainer {
+    margin-right: 0;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav__right {
+    gap: 20px;
+  }
+
+  .nav__dropdown {
+    width: 180px;
   }
 }
