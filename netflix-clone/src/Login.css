@@ -1,94 +1,147 @@
 .login {
-  position: relative;
-  height: 100vh;
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.2) 60%,
-      rgba(0, 0, 0, 0.7) 100%
-    ),
-    url("./netflix-landing-page.jpg") center no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-}
-
-.login__header {
-  padding: 25px 50px;
+    position: relative;
+    height: 100vh;
+    background: url("./netflix-landing-page.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .login__logo {
-  width: 165px;
-  object-fit: contain;
-  cursor: pointer;
+    position: fixed;
+    top: 25px;
+    left: 45px;
+    width: 150px;
+    object-fit: contain;
+    cursor: pointer;
+    z-index: 2;
 }
 
 .login__body {
-  margin: auto;
-  z-index: 2;
-  color: white;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 60px 68px;
-  width: 100%;
-  max-width: 450px;
-  min-height: 600px;
-  border-radius: 4px;
-  box-sizing: border-box;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    top: -30px;
 }
 
-.login__body > form {
-  display: flex;
-  flex-direction: column;
+.login__body h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: white;
 }
 
-.login__body > form > h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 28px;
+.login__body form {
+    display: flex;
+    flex-direction: column;
 }
 
-.login__body > form > input {
-  outline-width: 0;
-  height: 50px;
-  margin-bottom: 16px;
-  border-radius: 4px;
-  border: 1px solid #333;
-  padding: 0 20px;
-  background: #333;
-  color: white;
-  font-size: 16px;
+.login__body input {
+    height: 50px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: none;
+    background: #333;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
 }
 
-.login__body > form > button {
-  padding: 12px;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 4px;
-  background-color: #e50914;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  margin-top: 24px;
+.login__body input:-webkit-autofill,
+.login__body input:-webkit-autofill:hover, 
+.login__body input:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #333 inset;
+}
+
+.login__body button {
+    height: 50px;
+    padding: 16px;
+    margin-top: 24px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.login__help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.login__remember {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login__remember input {
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+
+.login__body form > p {
+    margin-top: 10px;
+    text-align: right;
+    font-size: 13px;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.login__body form > p:hover {
+    text-decoration: underline;
 }
 
 .login__footer {
-  margin-top: 40px;
+    margin-top: 40px;
+    text-align: left;
 }
 
 .login__footer > h4 {
-  font-weight: 400;
-  color: #737373;
+    color: #737373;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
-.login__link {
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
+.login__footer h4 > span {
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
 }
 
-.login__footer > p {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #8c8c8c;
-  line-height: 1.4;
+.login__footer h4 > span:hover {
+    text-decoration: underline;
+}
+
+.login__gradient {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
 }

@@ -1,46 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login({ onLogin }) {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
-    e.preventDefault();
-    onLogin();
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        onLogin(email, password);
+        
+        navigate('/home');
+    };
 
-  return (
-    <div className="login">
-      <div className="login__header">
-        <img
-          className="login__logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-          alt="Netflix Logo"
-          onClick={() => navigate('/')}
-        />
-      </div>
+    return (
+        <div className="login">
+            <div className="login__header">
+                <img
+                    className="login__logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                    alt="Netflix Logo"
+                    onClick={() => navigate('/')} 
+                />
+            </div>
 
-      <div className="login__body">
-        <form>
-          <h1>Sign In</h1>
-          <input placeholder="Email or mobile number" type="email" />
-          <input placeholder="Password" type="password" />
-          <button type="submit" onClick={signIn}>Sign In</button>
-          
-          <div className="login__footer">
-            <h4>
-              <span className="login__gray">New to Netflix? </span>
-              <span className="login__link" onClick={() => navigate('/')}>
-                Sign up now.
-              </span>
-            </h4>
-            <p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+            <div className="login__body">
+                <form onSubmit={handleSubmit}>
+                    <h1>Sign In</h1>
+                    <input 
+                        type="email" 
+                        placeholder="Email or phone number" 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required 
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required 
+                    />
+                    <button type="submit">Sign In</button>
+                    
+                    <div className="login__help">
+                        <div className="login__remember">
+                            <input type="checkbox" />
+                            <span>Remember me</span>
+                        </div>
+                        <p>Need help?</p>
+                    </div>
+
+                    <div className="login__footer">
+                        <p>New to Netflix? <span onClick={() => navigate('/sign-up')}>Sign up now.</span></p>
+                    </div>
+                </form>
+            </div>
+            <div className="login__gradient" />
+        </div>
+    );
 }
 
 export default Login;

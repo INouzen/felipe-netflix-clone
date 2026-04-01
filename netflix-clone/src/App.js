@@ -19,21 +19,19 @@ function App() {
   useEffect(() => {
     const fadeTimer = setTimeout(() => setIsFading(true), 2000);
     const loadTimer = setTimeout(() => setLoading(false), 3000);
-
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(loadTimer);
     };
   }, []);
 
-  const handleLogin = () => {
+  const handleLogin = (email, password) => {
+    if (!email || !password) return;
     setLoading(true);
     setIsFading(false);
-    
     setTimeout(() => {
       setUser({ name: "Felipe" });
       setIsFading(true);
-      
       setTimeout(() => {
         setLoading(false);
       }, 1000);
@@ -65,14 +63,31 @@ function App() {
             element={user ? (
               <>
                 <Nav onLogout={() => setUser(null)} onSearch={(term) => setSearchTerm(term)} />
-                {!searchTerm && <Banner />}
-                <Row title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow searchTerm={searchTerm} />
-                <Row title="Trending Now" fetchUrl={requests.fetchTrending} searchTerm={searchTerm} />
-                <Row title="Top Rated" fetchUrl={requests.fetchTopRated} searchTerm={searchTerm} />
-                <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} searchTerm={searchTerm} />
-                <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} searchTerm={searchTerm} />
-                <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} searchTerm={searchTerm} />
-                <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} searchTerm={searchTerm} />
+                
+                {searchTerm ? (
+                  <div className="search__results">
+                    <h2>Explore titles related to: {searchTerm}</h2>
+                    <Row 
+                      title={`Explore titles related to: ${searchTerm}`}
+                      fetchUrl={requests.fetchSearch(searchTerm)} 
+                      searchTerm={searchTerm} 
+                      isSearchGrid={true}
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <Banner />
+                    <div className="app__rows">
+                      <Row title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
+                      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
+                      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
+                      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+                      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
+                      <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
+                      <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
+                    </div>
+                  </>
+                )}
               </>
             ) : (
               <Navigate to="/" />

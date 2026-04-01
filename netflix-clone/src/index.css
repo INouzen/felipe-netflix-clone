@@ -1,9 +1,29 @@
-* {
+html,
+body,
+#root,
+.app {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar,
+.app::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   background-color: #111;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,4 +31,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  scrollbar-width: auto;
+  -ms-overflow-style: auto;
+}
+
+.app::-webkit-scrollbar {
+  width: 8px;
+  display: block !important;
+}
+
+.app::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.app::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
