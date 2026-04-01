@@ -1,6 +1,7 @@
 .app {
   background-color: #000;
   min-height: 100vh;
+  overflow-y: initial !important; 
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -26,7 +27,7 @@
 }
 
 .search__results {
-  padding: 80px 4% 20px 4%;
+  padding: 160px 4% 40px 4% !important;
   background-color: #000;
   min-height: 100vh;
   display: -webkit-box;
@@ -36,6 +37,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  touch-action: pan-y; 
 }
 
 .search__results h2 {
@@ -71,7 +73,7 @@
 
 @media (min-width: 480px) {
   .search__results {
-    padding-top: 90px;
+    padding-top: 170px !important;
   }
 
   .search__results h2 {
@@ -86,7 +88,7 @@
 
 @media (min-width: 768px) {
   .search__results {
-    padding-top: 100px;
+    padding-top: 180px !important;
   }
 
   .search__results h2 {
@@ -102,7 +104,7 @@
 
 @media (min-width: 1024px) {
   .search__results {
-    padding-top: 120px;
+    padding-top: 200px !important;
   }
 
   .search__grid {
