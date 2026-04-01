@@ -77,11 +77,43 @@ function Row({ title, fetchUrl, isLargeRow, searchTerm = "" }) {
       }
     };
 
+    let touchStartX = 0;
+    let touchLastX = 0;
+
+    const onTouchStart = (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchLastX = touchStartX;
+      velocity.current = 0;
+      cancelAnimationFrame(animationFrame.current);
+    };
+
+    const onTouchMove = (e) => {
+      const x = e.touches[0].clientX;
+      const diff = touchLastX - x;
+      touchLastX = x;
+      el.scrollLeft += diff;
+      velocity.current = diff;
+      const section = el.scrollWidth / 3;
+      if (el.scrollLeft >= section * 2) el.scrollLeft -= section;
+      else if (el.scrollLeft <= 0) el.scrollLeft += section;
+    };
+
+    const onTouchEnd = () => {
+      cancelAnimationFrame(animationFrame.current);
+      applyMomentum();
+    };
+
     el.scrollLeft = el.scrollWidth / 3;
     el.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
 
     return () => {
       el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchend", onTouchEnd);
       cancelAnimationFrame(animationFrame.current);
     };
   }, [movies, searchTerm]);
