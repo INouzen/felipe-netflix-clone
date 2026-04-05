@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './LandingPage.css';
+import backgroundImageFile from './netflix-landing-page.jpg'; 
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -18,12 +19,23 @@ function LandingPage() {
   };
 
   return (
-    <div className="landingPage">
+    <div 
+      className="landingPage"
+      style={{
+        height: "100vh",
+        backgroundSize: "cover",
+        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.8) 100%), url(${backgroundImageFile})`,
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        display: "flex",
+        flexDirection: "column"
+      }}
+    >
       <div className="landingPage__nav">
         <img
           className="landingPage__logo"
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-          alt="Netflix Logo"
+          alt="Logo"
         />
         <div className="landingPage__navRight">
           <select className="landingPage__language" onChange={changeLanguage}>
@@ -45,9 +57,11 @@ function LandingPage() {
           <form onSubmit={handleGetStarted}>
             <input 
               type="email" 
+              name="entry_field_1"
               placeholder={t('email_placeholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="off"
               required 
             />
             <button className="landingPage__getStarted" type="submit">
@@ -56,7 +70,20 @@ function LandingPage() {
           </form>
         </div>
       </div>
+
       <div className="landingPage__gradient" />
+
+      <div style={{ 
+        fontSize: '10px', 
+        color: 'rgba(255, 255, 255, 0.1)', 
+        textAlign: 'center', 
+        width: '100%',
+        position: 'absolute',
+        bottom: '10px',
+        zIndex: '10'
+      }}>
+        Educational Project - No data collected - Felipe 2026
+      </div>
     </div>
   );
 }

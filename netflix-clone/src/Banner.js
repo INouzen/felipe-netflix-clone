@@ -51,7 +51,7 @@ function Banner() {
           <button className="banner__button">My List</button>
         </div>
         <h1 className="banner__description">
-          {movie?.overview?.substring(0, 150)}...
+          {movie?.overview}
         </h1>
       </div>
       <div className="banner--fadeBottom" />
