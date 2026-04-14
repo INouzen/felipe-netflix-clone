@@ -19,12 +19,16 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   touch-action: pan-y;
+  /* MOBILE SWIPE OPTIMIZATION */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .row__posters::-webkit-scrollbar {
   display: none;
 }
 
+/* SEARCH GRID STYLES */
 .row__postersSearch {
   display: -ms-grid;
   display: grid;
@@ -43,6 +47,7 @@
   margin-right: 0;
 }
 
+/* POSTER WRAPPERS & SKELETONS */
 .row__posterWrapper {
   position: relative;
   -ms-flex-negative: 0;
@@ -50,6 +55,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /* SNAPS POSTER ON MOBILE */
+  scroll-snap-align: start;
 }
 
 .row__posterSkeleton {
@@ -76,6 +83,7 @@
   100% { background-position: -200% 0; }
 }
 
+/* POSTER CORE STYLES */
 .row__poster {
   object-fit: cover;
   width: 100%;
@@ -102,6 +110,7 @@
   transform: scale(1.09);
 }
 
+/* DETAIL PANEL STYLES */
 .row__detail {
   position: relative;
   width: 100%;
@@ -224,6 +233,7 @@
   background: #e6e6e6;
 }
 
+/* SEARCH GRID SPECIFICS */
 .row__searchGrid {
   display: -ms-grid;
   display: grid;
@@ -238,6 +248,8 @@
   width: 100%;
   -ms-flex-negative: unset;
   flex-shrink: unset;
+  /* DISABLE SNAPPING IN SEARCH GRID */
+  scroll-snap-align: none; 
 }
 
 .row__searchGrid .row__poster {
@@ -247,6 +259,7 @@
   margin-right: 0;
 }
 
+/* SEARCH DETAIL WRAPPER */
 .row__searchDetailWrapper {
   -ms-grid-column: 1;
   -ms-grid-column-span: -1;
@@ -321,6 +334,7 @@
   transform: translateY(0);
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 480px) {
   .row {
     margin-left: 15px;
