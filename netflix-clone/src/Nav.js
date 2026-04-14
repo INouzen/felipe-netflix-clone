@@ -27,6 +27,13 @@ function Nav({ onLogout, onSearch, isLanding }) {
     onSearch(e.target.value);
   };
 
+  const handleLogoClick = () => {
+    setQuery("");
+    onSearch("");
+    setShowSearch(false);
+    navigate('/home');
+  };
+
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
   };
@@ -43,7 +50,7 @@ function Nav({ onLogout, onSearch, isLanding }) {
           className="nav__logo"
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
           alt="Netflix Logo"
-          onClick={() => navigate('/home')}
+          onClick={handleLogoClick}
         />
         
         <div className="nav__right">
