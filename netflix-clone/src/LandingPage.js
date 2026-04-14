@@ -33,8 +33,8 @@ function LandingPage() {
     >
       <div className="landingPage__nav">
         <img
-          className="landingPage__logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          className="nouzen.webp"
+          src="nouzen.webp"
           alt="Logo"
         />
         <div className="landingPage__navRight">
