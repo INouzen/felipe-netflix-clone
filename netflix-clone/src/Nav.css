@@ -30,6 +30,7 @@
   width: 70px;
   object-fit: contain;
   cursor: pointer;
+  margin-top: 2px;
 }
 
 .nav__right {
@@ -263,6 +264,7 @@
 
   .nav__logo {
     width: 80px;
+    margin-top: 4px;
   }
 
   .nav__searchActive .nav__searchInput {
@@ -280,7 +282,8 @@
   }
 
   .nav__logo {
-    width: 92px;
+    width: 130px !important;
+    margin-top: 5px !important;
   }
 
   .nav__right {
@@ -323,6 +326,11 @@
 @media (min-width: 1024px) {
   .nav__right {
     gap: 20px;
+  }
+
+  .nav__logo {
+    width: 150px !important;
+    margin-top: 6px !important;
   }
 
   .nav__dropdown {

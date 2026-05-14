@@ -33,7 +33,7 @@ function LandingPage() {
     >
       <div className="landingPage__nav">
         <img
-          className="nouzen.webp"
+          className="landingPage__logo" 
           src="nouzen.webp"
           alt="Logo"
         />
